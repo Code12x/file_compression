@@ -1,0 +1,46 @@
+13:32:27 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: /usr/share/mysql-workbench
+	plugin path: /usr/lib/mysql-workbench/plugins
+	struct path: /usr/share/mysql-workbench/grt
+	module path: /usr/lib/mysql-workbench/modules
+	library path: /usr/share/mysql-workbench/libraries
+	user data dir: /home/justinkoch/.mysql/workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+13:32:27 [INF][      WBContext]: WbContext::init
+13:32:27 [INF][            WBA]: Looking for extension modules for WBA...
+13:32:27 [INF][            WBA]: 0 extension modules found
+13:32:27 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+13:32:27 [WRN][            grt]: /home/justinkoch/.mysql/workbench/connections.xml:26: link '3d7741ea-d7b9-11ed-8ab4-ef94ec422d4a' <object GrtObject> key=owner could not be resolved
+13:32:27 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+13:32:27 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Linux/Unix version 8.0.32 CE build 2612062 (64 bit)
+	Configuration Directory: /home/justinkoch/.mysql/workbench
+	Data Directory: /usr/share/mysql-workbench
+	Cairo Version: 1.16.0
+	OS:  x86_64
+	CPU: 20x 12th Gen Intel(R) Core(TM) i7-12700H (1407.569MHz) - 31.03GiB RAM
+No video adapter info available
+	Distribution: Pop!_OS 22.04 LTS
+
+	Fips mode enabled: no
+
+13:32:27 [WRN][       WBModule]: OS not found on supported OS list. OS string: ' x86_64'
+13:32:30 [INF][SQL Editor Form]: Opened connection 'Local instance 3306' to (Ubuntu) version 8.0.32-0ubuntu0.22.04.2
+13:48:20 [WRN][SQL Editor Form]: 1 row(s) affected, 1 warning(s):
+1007 Can't create database 'CSET160_FINAL_PROJECT'; database exists
+13:48:20 [ERR][SQL Editor Form]: Error Code: 3730. Cannot drop table 'Users' referenced by a foreign key constraint 'Teachers_ibfk_1' on table 'Teachers'.
+15:27:14 [ERR][SQL Editor Form]: Error Code: 1049. Unknown database 'CSET_160_FINAL_PROJECT'
+15:27:19 [ERR][SQL Editor Form]: Error Code: 1146. Table 'CSET160_FINAL_PROJECT.users' doesn't exist
+15:37:01 [ERR][SQL Editor Form]: Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`CSET160_FINAL_PROJECT`.`Teachers`, CONSTRAINT `Teachers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`))
+15:38:31 [ERR][SQL Editor Form]: Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`CSET160_FINAL_PROJECT`.`Teachers`, CONSTRAINT `Teachers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`))
+15:39:00 [ERR][SQL Editor Form]: Error Code: 1146. Table 'CSET160_FINAL_PROJECT.teachers' doesn't exist
+15:41:01 [ERR][SQL Editor Form]: Error Code: 1049. Unknown database 'CSET_160_FINAL_PROJECT'
+15:41:17 [ERR][SQL Editor Form]: Error Code: 1049. Unknown database 'CSET_160_FINAL_PROJECT'
+15:41:35 [ERR][SQL Editor Form]: Error Code: 1049. Unknown database 'CSET_160_FINAL_PROJECT'
+15:42:03 [ERR][SQL Editor Form]: Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`CSET160_FINAL_PROJECT`.`Teachers`, CONSTRAINT `Teachers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`))

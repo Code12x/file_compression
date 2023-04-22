@@ -49,12 +49,22 @@ int main(int argc, char *argv[]) {
     char* res_buf = (char*) &res;
 
 
-    // Compress algorithm
+    /* 
+    * === Compression Algorithm ===
+    *
+    * The file is scanned in intervals called cycles.
+    * The purpose of a cycle is to get the longest repeating phrase throuout the buffer
+    * Each cycle has a starting position in the file and an initial width (4)
+    * During the cycle, the buffer will be scanned at the current width as well as the current width +1
+    * if the current width +1 has the same number of occurences as the current width,
+    * then we start the cycle over again with width being equal to current width +1
+    *
+    */
     int pos = 0;
     while (pos <= size/2) {
-        int width = 2;
-        int cycle_flag = 0;
-        while (!cycle_flag) {
+        int width = 4;
+        int cycle_finished = 0;
+        while (!cycle_finished) {
             int current_occurence = scan_buf(buffer, width, pos);
             int next_occurence = scan_buf(buffer, width+1, pos);
             if (current_occurence == next_occurence) { // The current string can be longer to maximize string replacement.

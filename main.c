@@ -39,7 +39,6 @@ int main(int argc, char *argv[]) {
         fputs("Error reading file", stderr);
     }
 
-
     // The bit of info at the top to help decompress the file
     char meta_info[size];
     char* meta_buf = (char*) &meta_info;
@@ -50,7 +49,8 @@ int main(int argc, char *argv[]) {
 
 
     /* 
-    * === Compression Algorithm ===
+    *
+    * ===== Compression Algorithm =====
     *
     * The file is scanned in intervals called cycles.
     * The purpose of a cycle is to get the longest repeating phrase throuout the buffer
@@ -60,6 +60,7 @@ int main(int argc, char *argv[]) {
     * then we start the cycle over again with width being equal to current width +1
     *
     */
+
     int pos = 0;
     while (pos <= size/2) {
         int width = 4;
@@ -86,7 +87,20 @@ int main(int argc, char *argv[]) {
 
 
 int scan_buf(char* buffer, int width, int offset) {
+    int count = 0;
+    char control_window[width]; // This is the array that the windows will be checked against
+    for (int i=0; i<width; i++) {
+        control_window[i] = buffer[offset+i]; // Filling the control array
+    }
 
+    for (int i=0; i<strlen(buffer)-width; i++) {
+        char* currsor = &buffer[i];
+        if (*currsor == control_window[0]) { // The next few characters might be a repeat of the control_window
+            for (int j=1; j<width; j++) {
+                if ()
+            }
+        }
+    }
 }
 
 

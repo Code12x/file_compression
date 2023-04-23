@@ -139,6 +139,16 @@ int scan_buf(char* buffer, int width, int offset) {
     return count;
 }
 
+/*
+ *
+ * ===== add_compression_meta =====
+ * The purpose of this function is to create the short-hand notation that
+ * will be used in the compressed version of the file and add the short-hand
+ * to the meta_buf. The meta_buf is an array that will be added to the
+ * top of the result file for the decompression algorithm to use to readd
+ * the original content
+ *
+*/
 
 void add_compression_meta(char* buffer, int width, int pos, char* meta_buf) {
 

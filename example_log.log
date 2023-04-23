@@ -1,0 +1,14 @@
+2023-04-20 08:15:23 INFO [server] Starting up server...
+2023-04-20 08:15:24 DEBUG [server] Server started on port 8080
+2023-04-20 08:15:25 INFO [server] Waiting for incoming connections...
+2023-04-20 08:15:26 DEBUG [connection] New connection from 192.168.1.1:54687
+2023-04-20 08:15:27 INFO [connection] Connection established with 192.168.1.1:54687
+2023-04-20 08:15:28 DEBUG [connection] Received data from 192.168.1.1:54687
+2023-04-20 08:15:29 INFO [server] Received 1024 bytes of data from 192.168.1.1:54687
+2023-04-20 08:15:30 DEBUG [server] Processing data...
+2023-04-20 08:15:31 INFO [server] Data processed successfully
+2023-04-20 08:15:32 DEBUG [connection] Sending response to 192.168.1.1:54687
+2023-04-20 08:15:33 INFO [connection] Response sent to 192.168.1.1:54687
+2023-04-20 08:15:34 DEBUG [connection] Closing connection with 192.168.1.1:54687
+2023-04-20 08:15:35 INFO [connection] Connection with 192.168.1.1:54687 closed
+2023-04-20 08:15:36 INFO [server] Waiting for incoming connections...

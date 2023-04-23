@@ -3,8 +3,7 @@
 #include <stdlib.h>
 
 int scan_buf(char* buffer, int width, int offset);
-
-void compress_sect(char* buffer, int width, int pos, char* res_buf);
+void add_compression_meta(char* buffer, int width, int pos, char* meta_buf);
 
 
 int main(int argc, char *argv[]) {
@@ -85,6 +84,34 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+/*
+*
+* ===== scan_buf =====
+* This function returns the number of occurences that a "window" is repeated.
+*
+* A window is a portion of an array starting at offset and with a width of width.
+* A window can be represented by either a new array in memory,
+* or as a pointer of an array with a offset and width.
+*
+* For example:
+*
+* char my_array[6] = {'h', 'e', 'l', 'l', 'o', '!'};
+* size_t = width = 3;
+* size_t = offset = 1;
+*
+* // method 1:
+* char* pWindow_1 = &my_array[offset] // it will just have to be accessed one char at a time with (i<width)
+* for (int i=0; i<width; i++) {
+*     printf("Position %d in window: %c\n", i, my_array[offset+i]);
+* }
+*
+* // method 2:
+* char window_2[3];
+* for (int i=0; i<width; i++) {
+*     window_2[i] = my_array[offset+i];
+* }
+*
+*/
 
 int scan_buf(char* buffer, int width, int offset) {
     int count = 0;
@@ -99,13 +126,13 @@ int scan_buf(char* buffer, int width, int offset) {
         if (*currsor == control_window[0]) { // The next few characters might be a repeat of the control_window
             is_repeat = 1;
             for (int j=1; j<width; j++) {
-                if (buffer[i+j] != control_window[j]) {
+                if (buffer[i+j] != control_window[j]) { // The current window has a character that does not match the control
                     is_repeat = 0;
                     break;
                 }
             }
         }
-        if (is_repeat) {
+        if (is_repeat) { // The current window is indeed a repeat of the control window
             count++;
         }
     }
@@ -113,7 +140,7 @@ int scan_buf(char* buffer, int width, int offset) {
 }
 
 
-void compress_sect(char* buffer, int width, int pos, char* res_buf) {
+void add_compression_meta(char* buffer, int width, int pos, char* meta_buf) {
 
 }
 

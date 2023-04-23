@@ -95,12 +95,21 @@ int scan_buf(char* buffer, int width, int offset) {
 
     for (int i=0; i<strlen(buffer)-width; i++) {
         char* currsor = &buffer[i];
+        int is_repeat = 0;
         if (*currsor == control_window[0]) { // The next few characters might be a repeat of the control_window
+            is_repeat = 1;
             for (int j=1; j<width; j++) {
-                if ()
+                if (buffer[i+j] != control_window[j]) {
+                    is_repeat = 0;
+                    break;
+                }
             }
         }
+        if (is_repeat) {
+            count++;
+        }
     }
+    return count;
 }
 
 

@@ -75,10 +75,13 @@ int main(int argc, char *argv[]) {
                 fputs("SOME WEIRD ERROR", stderr);
                 exit(-1);
             } else {
-   //             // ALERT! Before compressing the section, walk through    <-------------------------------------
-  //              // the section in multiple directions to try to get the   <-------------------------------------
- //               // most efficient section to compress.                    <-------------------------------------
-//                // (EX. "3 INFO [" would end up giving up the 3 and then compressing the " INFO [")   <---------
+                /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+                // ALERT! Before compressing the section, walk through
+                // the section with position+1 and width-1 until width
+                // is = 4 and then compress the option that saved the
+                // most bytes.
+                // (EX. "3 INFO [" would end up giving up the 3 and then compressing the " INFO [")
+                /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
                 compress_sect(buffer, width, pos, res_buf);
             }
         }

@@ -5,6 +5,7 @@
 int scan_buf(char* buffer, int width, int offset);
 void add_compression_meta(char* buffer, int width, int pos, char* meta_buf);
 
+char 
 
 int main(int argc, char *argv[]) {
     if (argc < 1) {
@@ -67,13 +68,17 @@ int main(int argc, char *argv[]) {
         while (!cycle_finished) {
             int current_occurence = scan_buf(buffer, width, pos);
             int next_occurence = scan_buf(buffer, width+1, pos);
-            if (current_occurence == next_occurence) { // The current string can be longer to maximize string replacement.
+            if (current_occurence == next_occurence) {  // The current string can be longer to maximize string replacement.
                 width++;
                 continue;
             } else if (current_occurence < next_occurence){
                 fputs("SOME WEIRD ERROR", stderr);
                 exit(-1);
             } else {
+   //             // ALERT! Before compressing the section, walk through    <-------------------------------------
+  //              // the section in multiple directions to try to get the   <-------------------------------------
+ //               // most efficient section to compress.                    <-------------------------------------
+//                // (EX. "3 INFO [" would end up giving up the 3 and then compressing the " INFO [")   <---------
                 compress_sect(buffer, width, pos, res_buf);
             }
         }
@@ -148,9 +153,18 @@ int scan_buf(char* buffer, int width, int offset) {
  * top of the result file for the decompression algorithm to use to readd
  * the original content
  *
+ * The meta data begins with !<<07>>
+ * and ends with <<07>>!
+ *
+ * The meta data stores a set of chars as a single char.
+ * (ex. <200>=this repeats<06>) with <char> representing the char by the ascii code (<200> = char of 200)
+ * char values range from 174 to 255
+ *
+ * Each short-hand is ended by a <06>
+ * 
 */
 
-void add_compression_meta(char* buffer, int width, int pos, char* meta_buf) {
-
+void add_compression_meta(char* buffer, int width, int offset, char* meta_buf) {
+    char 
 }
 

@@ -13,14 +13,6 @@
 	Force OpenGL: No
 	quit when done: No
 13:32:27 [INF][      WBContext]: WbContext::init
-13:32:27 [INF][            WBA]: Looking for extension modules for WBA...
-13:32:27 [INF][            WBA]: 0 extension modules found
-13:32:27 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
-13:32:27 [WRN][            grt]: /home/justinkoch/.mysql/workbench/connections.xml:26: link '3d7741ea-d7b9-11ed-8ab4-ef94ec422d4a' <object GrtObject> key=owner could not be resolved
-13:32:27 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
-13:32:27 [INF][      WBContext]: System info:
- 	MySQL Workbench Community (GPL) for Linux/Unix version 8.0.32 CE build 2612062 (64 bit)
-	Configuration Directory: /home/justinkoch/.mysql/workbench
 	Data Directory: /usr/share/mysql-workbench
 	Cairo Version: 1.16.0
 	OS:  x86_64

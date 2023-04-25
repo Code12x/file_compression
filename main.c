@@ -4,8 +4,7 @@
 
 int scan_buf(char* buffer, int width, int offset);
 void add_compression_meta(char* buffer, int width, int pos, char* meta_buf);
-
-char 
+int meta_buf_items_count(char* meta_buf, size_t size);
 
 int main(int argc, char *argv[]) {
     if (argc < 1) {
@@ -40,8 +39,20 @@ int main(int argc, char *argv[]) {
     }
 
     // The bit of info at the top to help decompress the file
-    char meta_info[size];
-    char* meta_buf = (char*) &meta_info;
+    size_t meta_buf_size = sizeof(char) * 9;
+    char* meta_buf = malloc(meta_buf_size);
+    meta_buf[0] = '!';
+    meta_buf[1] = '<';
+    meta_buf[2] = 07;
+    meta_buf[3] = '>';
+    meta_buf[4] = '<';
+    meta_buf[5] = 07;
+    meta_buf[6] = '>';
+    meta_buf[7] = '!';
+    meta_buf[8] = '\n';
+
+    meta_buf_items_count(meta_buf, meta_buf_size);
+    return 0;
 
     // The result, compressed file
     char res[size];
@@ -82,12 +93,13 @@ int main(int argc, char *argv[]) {
                 // most bytes.
                 // (EX. "3 INFO [" would end up giving up the 3 and then compressing the " INFO [")
                 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-                compress_sect(buffer, width, pos, res_buf);
+                // compress_sect(buffer, width, pos, res_buf);
             }
         }
     }
 
     free(buffer);
+    free(meta_buf);
 
     return 0;
 }
@@ -167,7 +179,24 @@ int scan_buf(char* buffer, int width, int offset) {
  * 
 */
 
-void add_compression_meta(char* buffer, int width, int offset, char* meta_buf) {
-    char 
+void add_compression_meta(char* buffer, size_t buffer_size, int width, int offset, char* meta_buf, size_t meta_buf_size) {
+   char* pointer_map[];
 }
+
+
+int meta_buf_items_count(char* meta_buf, size_t size) {
+    if (size < 9) {
+        if (meta_buf[0] != '!' && meta_buf[1] != '<' && meta_buf[2] != 07 && meta_buf[3] != '>'
+                && meta_buf[size-1] != '!' && meta_buf[size-2] != '>' && meta_buf[size-3] != 07 && meta_buf[size-4] != '<') {
+            return -1;
+        }
+    }
+
+    int count = 0;
+
+    for (int i=4; i<size-4; i++) {
+
+    }
+}
+
 
